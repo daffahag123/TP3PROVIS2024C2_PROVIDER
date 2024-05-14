@@ -1,16 +1,23 @@
-# tp3_provider
+# TP3PROVIS2024C2_PROVIDER
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Data Anggota Kelompok :
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Legi Kuswandi",
+      "nim": "2203335",
+      "jenis_kelamin": "L",
+      "umur": "20",
+      "asal_kota": "Sukabumi"
+    },
+    {
+      "id": "2",
+      "name": "Daffa Fakhry Anshori",
+      "nim": "2200337",
+      "jenis_kelamin": "L",
+      "umur": "20",
+      "asal_kota": "Sukabumi"
+    },
+  ],
+}

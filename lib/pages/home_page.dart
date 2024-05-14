@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tp3_provider/services/mahasiswa_service.dart';
+
+import '../providers/daftar_mahasiswa_provider.dart';
+import '../providers/mahasiswa_provider.dart';
+import 'detail_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -30,17 +33,15 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  context.read<MahasiswaProvider>().fetchData();
+                  context.read<MahasiswaListProvider>().fetchData();
                 },
                 child: Text('Tampilkan Daftar Mahasiswa'),
               ),
               SizedBox(height: 20),
               Expanded(
-                child: Consumer<MahasiswaProvider>(
+                child: Consumer<MahasiswaListProvider>(
                   builder: (context, provider, child) {
-                    if (provider.mahasiswaList.isEmpty) {
-                      return Center(child: CircularProgressIndicator());
-                    }
+                    
                     return GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -53,7 +54,12 @@ class HomePage extends StatelessWidget {
                           elevation: 3,
                           child: InkWell(
                             onTap: () {
-                              // Implement navigation to detail page if needed
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) {
+                                  context.read<MahasiswaProvider>().fetchData(provider.mahasiswaList[index].id);
+                                  return DetailMahasiswaPage();
+                                }),
+                              );
                             },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tp3_provider/services/mahasiswa_service.dart';
-
-import 'pages/home_page.dart';
+import 'package:tp3_provider/providers/daftar_mahasiswa_provider.dart';
+import 'package:tp3_provider/providers/mahasiswa_provider.dart';
+import 'package:tp3_provider/pages/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,8 +11,11 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => MahasiswaProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => MahasiswaProvider()),
+        ChangeNotifierProvider(create: (_) => MahasiswaListProvider()),
+      ],
       child: MaterialApp(
         home: HomePage(),
       ),
